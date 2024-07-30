@@ -11,9 +11,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -34,12 +32,12 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./api/doc
-          destination: ./api/doc
+          destination: ./_site
       # 変換したファイルをコミットしてプッシュ
       - name: Push changes
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add api/doc/*
+          git add ./_site/*
           git commit -m "HTML Commit." || echo "No changes to commit"
           git push origin main
