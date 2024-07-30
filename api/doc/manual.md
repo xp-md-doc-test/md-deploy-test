@@ -1,10 +1,3 @@
----
-title:  "X-point REST API利用ガイド"
-description: ""
-date:   2024-07-12 16:54:37 +0100
-layout: default
----
-
 # REST API利用ガイド
 
 * Table of Content
