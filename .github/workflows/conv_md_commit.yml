@@ -24,6 +24,7 @@ jobs:
         uses: Cutwell/jekyll-build-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          build_only: true
       # 変換したファイルをコミットしてプッシュ
       - name: Push changes
         run: |
