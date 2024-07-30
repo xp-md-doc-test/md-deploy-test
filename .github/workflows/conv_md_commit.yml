@@ -25,6 +25,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           build_only: true
+          target_branch: main
+          target_path: ./api/doc
       # 変換したファイルをコミットしてプッシュ
       - name: Push changes
         run: |
