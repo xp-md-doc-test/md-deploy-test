@@ -24,7 +24,7 @@ jobs:
       - name: jekyll build
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.0" # Not needed with a .ruby-version file
+          ruby-version: "3.2.3" # Not needed with a .ruby-version file
           bundler-cache: true
       - name: build
         run: bundle exec jekyll build
