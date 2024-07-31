@@ -22,7 +22,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: jekyll build
-        uses: fabacab/jekyll-builder-for-github-pages-action@v1
+        uses: Cutwell/jekyll-build-action@v1
+        with:
+          build_only: true
+          build_dir: ./_site
       # 変換したファイルをコミットしてプッシュ
       - name: Push changes
         run: |
