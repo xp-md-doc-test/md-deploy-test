@@ -22,10 +22,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: jekyll build
-        uses: Cutwell/jekyll-build-action@v1
+        uses: ruby/setup-ruby@v1
         with:
-          build_only: true
-          build_dir: ./_site
+          ruby-version: "3.0" # Not needed with a .ruby-version file
+          bundler-cache: true
+      - name: build
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
       # 変換したファイルをコミットしてプッシュ
       - name: Push changes
         run: |
