@@ -1,3 +1,8 @@
+---
+layout: default
+title: X-point REST API利用ガイド
+---
+
 # REST API利用ガイド
 
 * Table of Content
