@@ -1,5 +1,0 @@
-title: X-point REST API利用ガイド
-remote_theme: pages-themes/slate@v0.2.0
-plugins:
-- jekyll-remote-theme
-baseurl: api/doc
