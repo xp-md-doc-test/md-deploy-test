@@ -30,7 +30,7 @@ jobs:
         run: |
           cp ./private_repo/api/openapi.yaml ./api/
           cp ./private_repo/api/doc/manual.md ./api/doc/
-          cp ./private_repo/api/doc/images/* ./api/doc/images/
+          cp -r ./private_repo/api/doc/images/ ./api/doc/
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add ./api
