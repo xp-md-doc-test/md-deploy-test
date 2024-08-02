@@ -1,0 +1,36 @@
+name: push private repo file
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  push_file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Public Repo
+        uses: actions/checkout@v4
+      - name: Generate Public Repo Token
+        uses: actions/create-github-app-token@v1
+        id: generate-token
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+      - name: Checkout Private Repo
+        uses: actions/checkout@v4
+        with:
+          repository: from_copy_repo
+          path: ./private_repo
+          token: ${{ steps.generate-token.outputs.token }}
+      - name: Push File
+        run: |
+          cp ./private_repo/api/openapi.yaml ./api/
+          cp ./private_repo/api/doc/manual.md ./api/doc/
+          cp ./private_repo/api/doc/images/* ./api/doc/images/
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add ./api
+          git commit -m "Update API definition and manual." || echo "No changes to commit."
+          git push origin main
