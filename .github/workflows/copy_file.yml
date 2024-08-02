@@ -18,6 +18,8 @@ jobs:
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: from_copy_repo
       - name: Checkout Private Repo
         uses: actions/checkout@v4
         with:
