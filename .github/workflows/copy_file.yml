@@ -21,7 +21,7 @@ jobs:
       - name: Checkout Private Repo
         uses: actions/checkout@v4
         with:
-          repository: from_copy_repo
+          repository: xp-md-doc-test/from_copy_repo
           path: ./private_repo
           token: ${{ steps.generate-token.outputs.token }}
       - name: Push File
